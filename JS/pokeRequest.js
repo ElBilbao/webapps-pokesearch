@@ -40,6 +40,7 @@ function successfulRequest(name, pokeInfo) {
 
   if (cols === 3) {
     cols = 0;
+    rows++;
     document.getElementById("current").removeAttribute("id");
 
     let newitem = document.createElement("div");
@@ -54,6 +55,7 @@ function successfulRequest(name, pokeInfo) {
   // Create card by elements
   let newCol = document.createElement("div");
   newCol.setAttribute("class", "col");
+  newCol.setAttribute("id", String(rows) + String(cols));
 
   let newCard = document.createElement("div");
   newCard.setAttribute("class", "card");
@@ -79,7 +81,7 @@ function successfulRequest(name, pokeInfo) {
   let firstLetter = pokeName.charAt(0).toUpperCase();
   pokeName = firstLetter + pokeName.slice(1);
   console.log(pokeName);
-  newCardTitle.innerHTML = pokeName;
+  newCardTitle.innerHTML = pokeName + " (ID: " + pokeID + ")";
 
   let innerTextTitle = document.createElement("h6");
   innerTextTitle.innerHTML = "Abilities:";
@@ -112,10 +114,12 @@ function successfulRequest(name, pokeInfo) {
   deleteBtn.setAttribute("class", "btn btn-danger");
   // Event to delete product
   deleteBtn.addEventListener("click", (event) => {
-    let eleClicked = event.target.parentNode.parentNode.parentNode.parentNode;
-    console.log(eleClicked);
+    let parent =
+      event.target.parentNode.parentNode.parentNode.parentNode.parentNode;
+    let toDelete = event.target.parentNode.parentNode.parentNode.parentNode;
     // TODO delete card
-    document.getElementById("???").removeChild(eleClicked);
+
+    parent.removeChild(toDelete);
   });
   deleteBtn.appendChild(document.createTextNode("X"));
 
