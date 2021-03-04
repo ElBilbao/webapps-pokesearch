@@ -7,6 +7,7 @@
 
     <!-- Cosmetic -->
     <title>PokeSearch</title>
+    <link rel="icon" href="Media\pokeball.png" />
 
     <!-- Bootstrap CSS -->
     <link
@@ -28,23 +29,21 @@
       <form id="form">
         <label for="pname">Pokemon Name:</label>
         <input type="text" id="pname" name="pname" /><br /><br />
-        <input type="submit" value="Submit" />
+        <input class="btn btn-primary" type="submit" value="Submit" />
         <p id="log"></p>
       </form>
     </div>
 
-    <div class="container" id="pokemonList"></div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8">col-sm-8</div>
-        <div class="col-sm-4">col-sm-4</div>
-      </div>
-      <div class="row">
-        <div class="col-sm">col-sm</div>
-        <div class="col-sm">col-sm</div>
-        <div class="col-sm">col-sm</div>
-      </div>
+    <div class="container" id="pokemonList">
+      <div
+        class="row"
+        id="current"
+        style="
+          text-align: center;
+          text-align: -webkit-center;
+          padding-bottom: 10px;
+        "
+      ></div>
     </div>
   </body>
 
@@ -56,4 +55,5 @@
   ></script>
   <script src="JS/submitForm.js"></script>
   <script src="JS/pokeRequest.js"></script>
+  <script src="JS/globals.js"></script>
 </html>
